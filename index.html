@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="overlay">
+        <div id="overlay-content">
+            <label for="pairCount">Select Number of Pairs:</label>
+            <select id="pairCount">
+                <option value="6">6 Pairs</option>
+                <option value="8">8 Pairs</option>
+                <option value="10">10 Pairs</option>
+            </select>
+            <button id="playGameBtn">Play Game</button>
+        </div>
+    </div>
+    <div class="game-info">
+        <h1>Memory Game</h1>
+        <p>Flips: <span id="flipCounter">0</span></p>
+        <button id="playAgainBtn">Play Again</button>
+    </div>
+    <div class="memory-game"></div>
+
+    <!-- Background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/bunny-hop-andrey-rossi-main-version-30994-02-09.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

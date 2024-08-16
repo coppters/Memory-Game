@@ -1,0 +1,167 @@
+* {
+    font-family: 'Press Start 2P', system-ui;
+  }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1e23;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    margin: 0;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#overlay-content {
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+#pairCount {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#playGameBtn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #61892F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#playGameBtn:hover {
+    background-color: #86C232;
+}
+
+.game-info {
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#playAgainBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #61892F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#playAgainBtn:hover {
+    background-color: #86C232;
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 5px;
+    justify-content: center;
+    width: 90vmin; /* Adjust to fit within the viewport */
+    height: 90vmin; /* Adjust to fit within the viewport */
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+    max-height: 100%; /* Ensure it doesn't exceed the screen height */
+}
+
+.memory-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s, box-shadow 0.5s; /* Ensure smooth transition */
+    width: 100%;
+    height: 100%;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.match {
+    animation: pulse 0.6s ease;
+    background-color: #353636; /* Grey color for matched pairs */
+}
+
+.memory-card.flip .front-face {
+    opacity: 1; /* Ensure flipped cards are fully visible */
+}
+
+.memory-card.match .front-face {
+    opacity: 0.5; /* Fade the front image to grey */
+    filter: grayscale(50%); /* Apply a grayscale filter to make it grey */
+}
+
+.memory-card.match .back-face {
+    display: none; /* Hide the back face */
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 5px;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #86C232;
+    }
+    50% {
+        transform: scale(1.05); /* Slight scale to create a pulse effect */
+        box-shadow: 0 0 20px #86C232;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #86C232;
+    }
+}
+
